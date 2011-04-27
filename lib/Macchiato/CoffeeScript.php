@@ -2,7 +2,6 @@
 
 namespace Macchiato;
 
-use \JSContext;
 use \RuntimeException;
 
 class CoffeeScript {
