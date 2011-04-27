@@ -1,6 +1,8 @@
 <?php
 
-require 'macchiato.php';
+require 'shared.php';
+
+cache_coffeescript();
 
 $coffee = new Macchiato\CoffeeScript(COFFEESCRIPT_PATH);
 

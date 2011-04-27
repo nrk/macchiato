@@ -1,13 +1,15 @@
 <?php
 
-require 'macchiato.php';
+require 'shared.php';
+
+cache_coffeescript();
 
 $coffee = new Macchiato\CoffeeScript(COFFEESCRIPT_PATH);
 
 $context = $coffee->createContext();
 $context->registerFunction('alert', function($msg) { echo "$msg\n"; });
 
-$result = $coffee->execute(
+$coffee->execute(
 <<<EOC
 class Animal
   constructor: (@name) ->
@@ -32,5 +34,3 @@ sam.move()
 tom.move()
 EOC
 , $context);
-
-var_dump($result);
