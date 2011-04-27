@@ -59,6 +59,6 @@ class CoffeeScript {
 
     public function executeFile($path, JavaScriptContextInterface $context = null) {
         $context = $context ?: $this->createContext();
-        return $context->evaluateScript($this->compileFile($path));
+        return $context->evaluateString($this->compileFile($path));
     }
 }
