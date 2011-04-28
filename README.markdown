@@ -52,6 +52,18 @@ square 42
 // int(1764)
 ```
 
+### Pass PHP objects and classes to CoffeeScript for execution ###
+
+PHP classes and objects can be made explicitly available to CoffeeScript when executing scripts:
+
+``` php
+<?php
+$context = $coffee->createContext();
+$context->registerVariable('message', ($m = 'Hello there!'));
+$context->registerFunction('alert', function($msg) { echo "$msg\n"; });
+$coffee->execute('alert(message)', $context);
+```
+
 
 ## Dependencies ##
 
