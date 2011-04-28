@@ -35,6 +35,8 @@ class SpiderMonkeyContext implements JavaScriptContextInterface {
     }
 
     public function registerClass($fqn, $alias = null) {
-        $this->getNativeContext()->registerClass($fqn);
+        $ctx = $this->getNativeContext();
+        $args = isset($alias) ? array($fqn, $alias) : array($fqn);
+        call_user_func_array(array($ctx, 'registerClass'), $args);
     }
 }
